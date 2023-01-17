@@ -7,8 +7,8 @@ it.  The effect is to turn a photo into an image that looks like an ink drawing 
 something like a watercolor painting. Depending on settings, the result could look somewhat
 like a stained glass window. 
 
-![alt text](https://github.com/darenw/CinkPipeline/blob/main/images/NedTrainCafe465-original-smaller.jpg)
-![alt text](https://github.com/darenw/CinkPipeline/blob/main/images/NedTrainCafe465-simple-smaller.jpg)
+![Original photograph](https://github.com/darenw/CinkPipeline/blob/main/images/NedTrainCafe465-original-smaller.jpg)
+![Artified (manually in GIMP)](https://github.com/darenw/CinkPipeline/blob/main/images/NedTrainCafe465-simple-smaller.jpg)
 
 Originally, I did this in GIMP manually. It took typically 50 to 80 or more steps. 
 It was hard to go back to an early step, nudge a parameter up a little, then re-do all the 
@@ -98,8 +98,8 @@ GEGL:  main site
 This image was created manally in GIMP. 
 When this project is far enough along, I'll put CinkPipeline's output here.
 
-![alt text](https://github.com/darenw/CinkPipeline/blob/main/images/PinkFlower_Xshow_photo.jpg)
-![alt text](https://github.com/darenw/CinkPipeline/blob/main/images/PinkFlower_Xshow_artified.jpg)
+![Original photograph](https://github.com/darenw/CinkPipeline/blob/main/images/PinkFlower_Xshow_photo.jpg)
+![Artified (manual)](https://github.com/darenw/CinkPipeline/blob/main/images/PinkFlower_Xshow_artified.jpg)
 
 
 
