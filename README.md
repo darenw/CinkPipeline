@@ -93,6 +93,11 @@ cink artified works from photos.
 
 GEGL:  main site 
 
+Using GEGL pipelines as general filter in GIMP:
+ http://gimpchat.com/viewtopic.php?f=10&t=19463&sid=79cd4e7e103c12ffdc5607609b7d5114 
+
+Using GEGL and gtk4 in simple Vala program: https://github.com/GNOME/gegl-gtk/blob/master/examples/vala/gegl-gtk-basic.vala 
+
 ## Example: Pink Flower
 
 This image was created manally in GIMP. 
