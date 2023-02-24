@@ -9,7 +9,7 @@ using Gegl;
 
  
 public
-struct ProcessingParams  {
+struct LittleTestProcessingParams  {
     float hueshift;     // degrees, from -180.0 to +180.0
     int poster_levels;  
     float blur_r;
@@ -17,13 +17,16 @@ struct ProcessingParams  {
 
 
 
-public class Pipeline : Object {
+public class LittleTestPipeline : Object {
     
     Gegl.Node pipe;
     Gegl.Node loader;
     Gegl.Node saver;
+    //Gegl.Node output;
     
-    public Pipeline(ProcessingParams params)  {
+    //Gegl.Buffer outbuf;
+    
+    public LittleTestPipeline(LittleTestProcessingParams params)  {
         pipe = new Gegl.Node();
         
         loader = pipe.create_child("gegl:load");
@@ -40,25 +43,25 @@ public class Pipeline : Object {
             "std-dev-x", params.blur_r,
             "std-dev-y", params.blur_r,
             null);
-            
-        saver=pipe.new_child("operation", "gegl:save", 
-            "quality",  20,
-            null);
         
+
+        saver=pipe.new_child("operation", "gegl:save", 
+                null);
+
         /*    
         var ok1=loader.connect_to("output", poster, "input");
         var ok2=poster.connect_to("output", blur, "input");
         var ok3=blur.connect_to("output", saver, "input");
         stdout.printf(@"connect ok ($ok1) ($ok2) ($ok3)\n");
         */
-        pipe.link_many(loader, huespin, poster, blur, saver, null);        
+        pipe.link_many(loader, huespin, poster, blur,  saver, null);        
     }
     
-    public void run(string infile, string outfile)  {
-        stdout.printf(@"processing file $infile, writint to $outfile\n");
-        loader.set_property("path", infile);
-        saver.set_property("path", outfile);
-
+    
+    public void run(string infilename, string outfilename)  {
+        loader.set_property("path", infilename);
+        saver.set_property("path", outfilename);
+        saver.set_property("quality", 33);
         graph_dump_outputs(saver);
         saver.process();
     }

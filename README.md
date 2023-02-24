@@ -80,13 +80,19 @@ and curve adjustments to squash the black end or white end, and
 
 Work in progress - no one know how to use this yet. Not even me!
 
+Command line options:
+
+    --list           lists all GEGL filters known in current environment
+    --test           runs hardcoded pipeline as basic functionality test
+    --help           this don't do no nothing. you wish!  
+
 
 ## Python Toolkit
 
 Not meant for just anyone to use, but a sketchy personal toolkit for image processing and artsy effects,
 https://github.com/darenw/cinktools  (no useful documentation yet) 
 This lacks a Cubism step, and some other things, but could do maybe 80% of the work of making
-cink artified works from photos.
+cink artified works from photos. Good for experimenting, not good for replacing this CinkPipeline.
 
 
 ## References
@@ -97,6 +103,9 @@ Using GEGL pipelines as general filter in GIMP:
  http://gimpchat.com/viewtopic.php?f=10&t=19463&sid=79cd4e7e103c12ffdc5607609b7d5114 
 
 Using GEGL and gtk4 in simple Vala program: https://github.com/GNOME/gegl-gtk/blob/master/examples/vala/gegl-gtk-basic.vala 
+
+https://debarshiray.wordpress.com/2017/11/20/image-wrangling-with-gegl-an-introduction/
+http://getfr.org/pub/dragonfly-release/usr-local-share/doc/gegl/api.html
 
 ## Example: Pink Flower
 
