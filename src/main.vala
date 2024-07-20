@@ -1,8 +1,32 @@
-
+// MAIN for CinkPipeline24
+// 
+//
+// STAGE ONE (July 2024) - hardcode pipeline here, no modularizing, 
+//     but keep each step's params in separate source file as prep for next stage.
+//
+// STAGE TWO:  Pull out GEGL nodes for each step, modularize as composite node, 
+//     put into separate sources.
+//
+// See source and short description at https://github.com/darenw/CinkPipeline
+// (C) 2024 Daren Scot Wilson 
 
 using GLib;
 //using Gegl;
 
+
+struct AllPipelineParams {
+    CleanParams clean;
+    SplitParams split;
+    int useless;
+}
+
+
+
+void fill_params_for_pink_flower(out AllPipelineParams all)   {
+    all.clean.placeholder = 0.1f;
+    all.split.placeholder = 0.2f;
+    all.useless = 9;
+}
 
 
 void list_all_filters()  {
@@ -16,39 +40,22 @@ void list_all_filters()  {
 
 
 
-void pink_flower_test()  {
-
-    const string pink_flower_photo =
-        "./images/PinkFlower_Xshow_photo.jpg";
-
-    const string outfile = "TESTX99.jpg";
-
-    var flower_process_params = LittleTestProcessingParams() {
-        hueshift = -73.0f,
-        poster_levels = 3,
-        blur_r = 2.1f
-    };
-    
-    LittleTestPipeline pipeline = new LittleTestPipeline(flower_process_params);
-    pipeline.run(pink_flower_photo, outfile);
-}
-
-
-
 int main(string[] args)   {
-    stdout.printf("Enter main()");
+
     Gegl.init(ref args);
     
     
-    
-    if (args[1]=="--list")  {
+    if (args[1]=="--list-gegl")  {
         list_all_filters();
+        Gegl.exit();
+        return 0;
     } 
-    else if (args[1]=="--test")  {
-        pink_flower_test();
-    }
+    
+    
+    AllPipelineParams pipeline_params;
+    fill_params_for_pink_flower(out pipeline_params);
     
     
     Gegl.exit();
-    return 0;
+    return pipeline_params.useless;
 }

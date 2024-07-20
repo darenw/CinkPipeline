@@ -3,7 +3,13 @@ project('CinkPipeline', 'vala', 'c')
 
 sources = files(
   'src/main.vala',
-  'src/test-simple.vala'
+  'src/clean.vala',
+  'src/prep.vala',
+  'src/split.vala',
+  'src/linework.vala',
+  'src/colorwork.vala',
+  'src/snuff.vala',
+  'src/composit.vala'
 )
 
 
@@ -14,4 +20,5 @@ deps = [
   dependency('gegl-0.4')
 ]
 
-executable('cinkize', sources, dependencies:deps)
+
+executable('cinkpipe', sources, dependencies:deps)
