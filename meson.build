@@ -3,6 +3,7 @@ project('CinkPipeline', 'vala', 'c')
 
 sources = files(
   'src/main.vala',
+  'src/artifypipeline.vala',
   'src/clean.vala',
   'src/prep.vala',
   'src/split.vala',

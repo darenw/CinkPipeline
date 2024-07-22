@@ -14,19 +14,6 @@ using GLib;
 //using Gegl;
 
 
-struct AllPipelineParams {
-    CleanParams clean;
-    SplitParams split;
-    int useless;
-}
-
-
-
-void fill_params_for_pink_flower(out AllPipelineParams all)   {
-    all.clean.placeholder = 0.1f;
-    all.split.placeholder = 0.2f;
-    all.useless = 9;
-}
 
 
 void list_all_filters()  {
@@ -38,6 +25,17 @@ void list_all_filters()  {
 }
 
 
+
+
+const string pink_flower_photo = "./images/PinkFlower_Xshow_photo.jpg";
+
+const string outfilename = "TEST.jpg";
+
+void fill_params_for_pink_flower(out AllPipelineParams all)   {
+    all.clean.placeholder = 0.1f;
+    all.split.placeholder = 0.2f;
+    all.useless = 9;
+}
 
 
 int main(string[] args)   {
@@ -52,8 +50,16 @@ int main(string[] args)   {
     } 
     
     
+    PipelineArchitecture architecture;   
+    fill_standard_pipeline_architecture(out architecture);
+    
     AllPipelineParams pipeline_params;
     fill_params_for_pink_flower(out pipeline_params);
+    
+    ArtifyPipeline pipeline = new ArtifyPipeline();
+    pipeline.build(ref architecture);
+    pipeline.set_params(ref pipeline_params);
+    pipeline.process_image_file(pink_flower_photo, outfilename);
     
     
     Gegl.exit();

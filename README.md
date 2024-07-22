@@ -82,6 +82,7 @@ Work in progress - no one know how to use this yet. Not even me!
 
 Command line options:
 
+
     --list-gegl      lists all GEGL filters known in current environment
     --help           this don't do no nothing. you wish!  
 
